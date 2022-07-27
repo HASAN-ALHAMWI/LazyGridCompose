@@ -30,11 +30,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             LazyGridComposeTheme {
                 val state = rememberLazyGridState(
-                    initialFirstVisibleItemIndex = 99
+                    initialFirstVisibleItemIndex = 0
                 )
                 val scope = rememberCoroutineScope()
                 LazyVerticalGrid(columns = GridCells.Fixed(4), state = state, content = {
-                    items(1000) { i ->
+                    items(100) { i ->
                         Box(
                             modifier = Modifier
                                 .padding(8.dp)
@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
                                 .background(Color.Green)
                                 .clickable {
                                     scope.launch {
-                                        state.animateScrollToItem(99)
+                                        state.animateScrollToItem(0)
                                     }
                                 }, contentAlignment = Alignment.Center
                         ) {
